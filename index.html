@@ -2,9 +2,37 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Verdade ou Desafio – Lésbicas</title>
+  <title>Verdade ou Desafio – Pride</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .story {
+      width: 72px;
+      height: 72px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9999px;
+      background: #e5e7eb;
+    }
+
+    button {
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    button:active {
+      transform: scale(.96);
+    }
+  </style>
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 flex flex-col items-center px-4 pt-10 pb-36">
@@ -12,7 +40,31 @@
   <div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl max-w-md w-full p-6 text-center">
 
     <h1 class="text-3xl font-extrabold text-pink-600">🌈 Verdade ou Desafio</h1>
-    <p class="text-gray-600 mb-4 font-semibold">Edição Lésbica 🧡🤍💗</p>
+    <p class="text-gray-600 mb-4 font-semibold">Edição Pride</p>
+
+    <!-- PARTICIPANTES -->
+    <div class="flex justify-center gap-4 mb-6 text-center text-sm font-semibold text-gray-700">
+      <div class="flex flex-col items-center gap-1">
+        <div class="story">
+          <img src="img/pessoa1.jpg" alt="Ana">
+        </div>
+        <span>Ana</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-1">
+        <div class="story">
+          <img src="nath.jpeg" alt="nathalia">
+        </div>
+        <span>Bea</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-1">
+        <div class="story">
+          <img src="img/pessoa3.jpg" alt="Clara">
+        </div>
+        <span>Clara</span>
+      </div>
+    </div>
 
     <!-- PERGUNTA ANTERIOR -->
     <div class="bg-gray-100 rounded-xl p-3 mb-4 text-sm text-gray-700">
@@ -56,18 +108,17 @@
   </div>
 
   <script>
+    // ⚠️ Substitua pelos textos que você quiser depois
     const verdades = [
-      "Com quantos anos voce perdeu a virgindade?",
-      "Já trocou nudes com alguém do grupo?",
-      "Qual é a coisa mais louca que você já fez?",
-      "Qual música representa você?"
+      "Pergunta personalizada 1",
+      "Pergunta personalizada 2",
+      "Pergunta personalizada 3"
     ];
 
     const desafios = [
-      "Manda uma mensagem para alguém que você ama dizendo algo que você nunca disse antes",
-      "Tira uma foto de calcinha",
-      "Escolha alguma menina do grupo para mostrar o peito no grupo!",
-      "Escolha alguem do grupo para mostra uma foto de calcinha e sutiã!"
+      "Desafio personalizado 1",
+      "Desafio personalizado 2",
+      "Desafio personalizado 3"
     ];
 
     let jaClicou = false;
@@ -84,38 +135,30 @@
     function sortearVerdade() {
       if (jaClicou) return;
       jaClicou = true;
-
       atualizarAnterior();
-
       contadorVerdade++;
       countVerdade.innerText = contadorVerdade;
-
       perguntaAtual = verdades[Math.floor(Math.random() * verdades.length)];
       resultado.innerText = perguntaAtual;
-
       travar();
     }
 
     function sortearDesafio() {
       if (jaClicou) return;
       jaClicou = true;
-
       atualizarAnterior();
-
       contadorDesafio++;
       countDesafio.innerText = contadorDesafio;
-
       perguntaAtual = desafios[Math.floor(Math.random() * desafios.length)];
       resultado.innerText = perguntaAtual;
-
       travar();
     }
 
     function travar() {
       btnVerdade.disabled = true;
       btnDesafio.disabled = true;
-      btnVerdade.classList.add("opacity-50", "cursor-not-allowed");
-      btnDesafio.classList.add("opacity-50", "cursor-not-allowed");
+      btnVerdade.classList.add("opacity-50");
+      btnDesafio.classList.add("opacity-50");
     }
 
     function resetarRodada() {
@@ -123,8 +166,8 @@
       resultado.innerText = "Clique em um botão 👇";
       btnVerdade.disabled = false;
       btnDesafio.disabled = false;
-      btnVerdade.classList.remove("opacity-50", "cursor-not-allowed");
-      btnDesafio.classList.remove("opacity-50", "cursor-not-allowed");
+      btnVerdade.classList.remove("opacity-50");
+      btnDesafio.classList.remove("opacity-50");
     }
   </script>
 
